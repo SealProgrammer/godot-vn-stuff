@@ -1,0 +1,145 @@
+[gd_scene load_steps=19 format=3 uid="uid://clgcqvcrxqrum"]
+
+[ext_resource type="Script" uid="uid://cn1h3btcc0fk1" path="res://scripts/main_scene.gd" id="1_7ykc4"]
+[ext_resource type="Script" uid="uid://c3jddrwwk8k2d" path="res://scripts/Events/Event.gd" id="2_gubc5"]
+[ext_resource type="Texture2D" uid="uid://cn8qxuq6yv0ry" path="res://art/bg/test.png" id="2_pu3yx"]
+[ext_resource type="Texture2D" uid="uid://bbw8k2y3kg7s7" path="res://art/char/test1/base.png" id="3_gubc5"]
+[ext_resource type="Script" uid="uid://ca7hnna0if2ok" path="res://scripts/Events/EventTypes/EventBase.gd" id="3_rt2n2"]
+[ext_resource type="Script" uid="uid://dct05i65lrpxd" path="res://scripts/Events/EventTypes/EventText.gd" id="4_rt2n2"]
+[ext_resource type="Script" uid="uid://dpehnflqr28j5" path="res://scripts/Events/EventContext.gd" id="5_18nlu"]
+[ext_resource type="Script" uid="uid://b8wmu8j6pc13q" path="res://scripts/Events/EventTypes/EventWait.gd" id="5_c16ls"]
+[ext_resource type="Script" uid="uid://ba67rynnategc" path="res://scripts/Events/EventTypes/EventAuthor.gd" id="6_c1pb6"]
+[ext_resource type="Texture2D" uid="uid://cqpwegiofyj1p" path="res://art/char/test2/base.png" id="10_6wevv"]
+
+[sub_resource type="Resource" id="Resource_si52b"]
+script = ExtResource("5_c16ls")
+time = 2.0
+metadata/_custom_type_script = "uid://b8wmu8j6pc13q"
+
+[sub_resource type="Resource" id="Resource_18nlu"]
+script = ExtResource("6_c1pb6")
+author = 0
+metadata/_custom_type_script = "uid://ba67rynnategc"
+
+[sub_resource type="Resource" id="Resource_e1cbu"]
+script = ExtResource("4_rt2n2")
+text = "Hello!"
+metadata/_custom_type_script = "uid://dct05i65lrpxd"
+
+[sub_resource type="Resource" id="Resource_6wevv"]
+script = ExtResource("2_gubc5")
+event_parameters = Array[ExtResource("3_rt2n2")]([SubResource("Resource_si52b"), SubResource("Resource_18nlu"), SubResource("Resource_e1cbu")])
+metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
+
+[sub_resource type="Resource" id="Resource_mngbo"]
+script = ExtResource("6_c1pb6")
+author = 1
+metadata/_custom_type_script = "uid://ba67rynnategc"
+
+[sub_resource type="Resource" id="Resource_4w45t"]
+script = ExtResource("4_rt2n2")
+text = "oh hey"
+metadata/_custom_type_script = "uid://dct05i65lrpxd"
+
+[sub_resource type="Resource" id="Resource_r6p65"]
+script = ExtResource("2_gubc5")
+event_parameters = Array[ExtResource("3_rt2n2")]([SubResource("Resource_mngbo"), SubResource("Resource_4w45t")])
+metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
+
+[sub_resource type="Resource" id="Resource_c1pb6"]
+script = ExtResource("5_18nlu")
+metadata/_custom_type_script = "uid://dpehnflqr28j5"
+
+[node name="MainScene" type="Control" node_paths=PackedStringArray("dialog", "author", "background")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7ykc4")
+events = Array[ExtResource("2_gubc5")]([SubResource("Resource_6wevv"), SubResource("Resource_r6p65")])
+dialog = NodePath("MarginContainer/VBoxContainer/TextArea/MarginContainer/VBoxContainer/Dialog")
+author = NodePath("MarginContainer/VBoxContainer/TextArea/MarginContainer/VBoxContainer/Name")
+background = NodePath("MarginContainer/VBoxContainer/Scene/SubViewportContainer/SubViewport/Background")
+event_context = SubResource("Resource_c1pb6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Scene" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/VBoxContainer/Scene"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/VBoxContainer/Scene/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1910, 761)
+render_target_update_mode = 4
+
+[node name="Background" type="TextureRect" parent="MarginContainer/VBoxContainer/Scene/SubViewportContainer/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_pu3yx")
+expand_mode = 3
+
+[node name="Base" type="Sprite2D" parent="MarginContainer/VBoxContainer/Scene/SubViewportContainer/SubViewport"]
+position = Vector2(269.5, 527.5)
+scale = Vector2(0.52832, 0.52832)
+texture = ExtResource("3_gubc5")
+
+[node name="Base2" type="Sprite2D" parent="MarginContainer/VBoxContainer/Scene/SubViewportContainer/SubViewport"]
+position = Vector2(1751.75, 603.75)
+scale = Vector2(0.304199, 0.304199)
+texture = ExtResource("10_6wevv")
+
+[node name="TextArea" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TextArea"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TextArea/MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TextArea/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Mr Chucky Cheeze:"
+fit_content = true
+
+[node name="Dialog" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TextArea/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Why hello there; This is where [wave][rainbow]dialog[/rainbow][/wave] gets to go."
+fit_content = true
