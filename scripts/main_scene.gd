@@ -5,7 +5,7 @@ enum Character {
 	CHAR2
 }
 
-@onready var characters = {
+@onready var characters : Dictionary = {
 	"CHAR1": {
 		"name": "Character 1",
 		"node": %Character1
@@ -30,7 +30,7 @@ enum Character {
 func get_char(char: Character) -> Dictionary:
 	return characters[Character.find_key(char)]
 
-func wait(s: float):
+func wait(s: float) -> void:
 	await get_tree().create_timer(s).timeout
 
 func display_text(text: String) -> void:
@@ -52,15 +52,13 @@ func display_text(text: String) -> void:
 				await wait(0.5)
 			else:
 				await wait(0.04)
-	
-	await wait(2.0)
 
-func change_author(new_author: String) -> void:
+func change_author(new_author: Character) -> void:
 	# TBD if this needs to be animated
-	author.text = "[outline_size=8][outline_color=bb5599] %s[/outline_color][/outline_size]" % characters[new_author]["name"]
+	author.text = "[outline_size=8][outline_color=bb5599] %s[/outline_color][/outline_size]" % get_char(new_author)["name"]
 
-func change_sprite(actor : Character, sprite_path : String) -> void:
-	characters[actor].node.texture = load(sprite_path)
+func change_sprite(actor : Character, sprite_path : String, size_change: VNCharacter.OpTime) -> void:
+	get_char(actor).node.change_sprite(load(sprite_path), size_change)
 
 func converse() -> void:
 	for event in events:

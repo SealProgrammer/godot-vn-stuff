@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvitxbaqx71yv"]
+[gd_scene load_steps=12 format=3 uid="uid://bvitxbaqx71yv"]
 
 [ext_resource type="Script" uid="uid://ks32bgsga2bc" path="res://scripts/character.gd" id="1_3i3nt"]
 [ext_resource type="Texture2D" uid="uid://bbw8k2y3kg7s7" path="res://art/char/test1/base.png" id="2_apuoc"]
@@ -70,6 +70,36 @@ tracks/0/keys = {
 "values": [Vector2(-1, 1), Vector2(1e-05, 1.2), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_25pii"]
+resource_name = "go_big"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.282317),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_exdhi"]
+resource_name = "go_small"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.282317, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_rguqb"]
 resource_name = "squish"
 length = 0.5
@@ -122,13 +152,33 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5)
 }
 
+[sub_resource type="Animation" id="Animation_r87yu"]
+resource_name = "walk"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.5, 2.25, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -15), Vector2(0, 0), Vector2(0, 15), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rguqb"]
 _data = {
 &"RESET": SubResource("Animation_3i3nt"),
 &"flip 180": SubResource("Animation_pry4r"),
 &"flip 360": SubResource("Animation_fwsyb"),
+&"go_big": SubResource("Animation_25pii"),
+&"go_small": SubResource("Animation_exdhi"),
 &"squish end": SubResource("Animation_rguqb"),
-&"squish start": SubResource("Animation_apuoc")
+&"squish start": SubResource("Animation_apuoc"),
+&"walk": SubResource("Animation_r87yu")
 }
 
 [node name="Character" type="Node2D"]
