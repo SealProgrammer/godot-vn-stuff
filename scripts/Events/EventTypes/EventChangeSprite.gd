@@ -1,6 +1,5 @@
 class_name EventChangeSprite extends EventBase
 
-#@export var character : Game.Character
 @export var character : Game.Character
 @export_file("*.png") var sprite : String
 

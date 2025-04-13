@@ -5,16 +5,16 @@ enum Character {
 	CHAR2
 }
 
-var Characters = {
+@onready var characters = {
 	"CHAR1": {
-		"name": "Character 1"
+		"name": "Character 1",
+		"node": %Character1
 	},
 	"CHAR2": {
-		"name": "Character 2"
+		"name": "Character 2",
+		"node": %Character2
 	}
 }
-
-@export_enum("char1", "char2") var char_name
 
 @export_category("Dialog")
 @export var events : Array[Event]
@@ -23,14 +23,18 @@ var Characters = {
 @export var dialog : RichTextLabel
 @export var author : RichTextLabel
 @export var background : TextureRect
+@export var subviewport : SubViewport
 
 @export var event_context : EventContext
+
+func get_char(char: Character) -> Dictionary:
+	return characters[Character.find_key(char)]
 
 func wait(s: float):
 	await get_tree().create_timer(s).timeout
 
 func display_text(text: String) -> void:
-	dialog.text = text
+	dialog.text = "[outline_size=3]%s[/outline_size]" % text
 	dialog.visible_characters = 0
 	
 	var is_bbcode := false
@@ -52,16 +56,11 @@ func display_text(text: String) -> void:
 	await wait(2.0)
 
 func change_author(new_author: String) -> void:
-	author.text = Characters[new_author]["name"]
+	# TBD if this needs to be animated
+	author.text = "[outline_size=8][outline_color=bb5599] %s[/outline_color][/outline_size]" % characters[new_author]["name"]
 
-func change_sprite(actor : Character, sprite_path : String):
-	var sprite = load(sprite_path)
-	
-	match actor:
-		Character.CHAR1:
-			$MarginContainer/VBoxContainer/Scene/SubViewportContainer/SubViewport/Base.texture = sprite
-		Character.CHAR2:
-			$MarginContainer/VBoxContainer/Scene/SubViewportContainer/SubViewport/Base2.texture = sprite
+func change_sprite(actor : Character, sprite_path : String) -> void:
+	characters[actor].node.texture = load(sprite_path)
 
 func converse() -> void:
 	for event in events:
@@ -74,5 +73,8 @@ func _ready() -> void:
 	event_context.dialog = dialog
 	event_context.background = background
 	event_context.scene = self
+	event_context.subview = subviewport
+	
+	await get_tree().process_frame #HACK waits for everything to be loaded before continuing, fixes some things where root is loaded but other things are not.
 	
 	converse()
