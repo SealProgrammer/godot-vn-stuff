@@ -1,0 +1,209 @@
+[gd_scene load_steps=14 format=3 uid="uid://dfs1o2x3hmpfv"]
+
+[ext_resource type="Texture2D" uid="uid://b5nr4fo5c46g5" path="res://art/bg/chucky.jpg" id="1_fgkus"]
+[ext_resource type="Script" uid="uid://c4ry7f1vpneff" path="res://scripts/title_screen.gd" id="1_s4lrb"]
+[ext_resource type="FontFile" uid="uid://mqbkrlwk3rvc" path="res://art/ui/font/RifficFree-Bold.ttf" id="2_sa3yf"]
+[ext_resource type="FontFile" uid="uid://dr5mawxi5cegt" path="res://art/ui/font/MochiyPopPOne-Regular.ttf" id="4_e54dn"]
+[ext_resource type="Texture2D" uid="uid://r4c1noay6n76" path="res://art/ui/logo.png" id="4_mgrm8"]
+[ext_resource type="AudioStream" uid="uid://cq3f0fud5tflm" path="res://art/sfx/music/title.mp3" id="5_dc4i4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dc4i4"]
+
+[sub_resource type="Theme" id="Theme_e54dn"]
+FlatButton/styles/pressed = SubResource("StyleBoxEmpty_dc4i4")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tklts"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e54dn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc4i4"]
+bg_color = Color(0.921569, 0.960784, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3yumr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e54dn"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_e54dn")
+script = ExtResource("1_s4lrb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fgkus")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(301, 245)
+texture = ExtResource("4_mgrm8")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.132
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -14.56
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0.733333, 0.333333, 0.6, 1)
+theme_override_constants/outline_size = 58
+theme_override_fonts/font = ExtResource("4_e54dn")
+theme_override_font_sizes/font_size = 120
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tklts")
+text = "スタトゲーム"
+flat = true
+
+[node name="Credits" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0.733333, 0.333333, 0.6, 1)
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = ExtResource("4_e54dn")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e54dn")
+text = "クレヂツ"
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dc4i4")
+autoplay = true
+parameters/looping = true
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dc4i4")
+
+[node name="Label" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.034
+anchor_right = 0.194
+anchor_bottom = 0.127
+offset_left = -0.0800018
+offset_top = 0.279999
+offset_right = 0.519989
+offset_bottom = -0.160004
+theme_override_colors/font_outline_color = Color(0.733333, 0.333333, 0.6, 1)
+theme_override_constants/outline_size = 28
+theme_override_fonts/font = ExtResource("4_e54dn")
+theme_override_font_sizes/font_size = 81
+text = "CREDITS"
+
+[node name="Name" type="RichTextLabel" parent="Credits"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_e54dn")
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[center]
+[outline_size=8][outline_color=bb5599]VOICE TALENT:
+        Maddie as チャッキ
+        Charlotte as 千代
+        Julie as じゅんか
+
+ART DIRECTION: Charlotte
+
+PROGRAMMING LEAD: Julie
+
+DIRECTOR: Maddie
+
+Based on the Original Short Story by Maddie
+[/outline_color][/outline_size]
+[/center]"
+
+[node name="ReturnToTitle" type="Button" parent="Credits"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 162.116
+offset_bottom = 230.116
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0.733333, 0.333333, 0.6, 1)
+theme_override_constants/outline_size = 23
+theme_override_fonts/font = ExtResource("4_e54dn")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3yumr")
+text = "RETURN"
+flat = true
+
+[node name="Fadeout" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e54dn")
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Fadeout"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.875
+anchor_top = 0.939
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0001
+offset_top = -11.1201
+offset_right = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.733333, 0.333333, 0.6, 1)
+theme_override_constants/outline_size = 26
+theme_override_fonts/normal_font = ExtResource("2_sa3yf")
+theme_override_font_sizes/normal_font_size = 53
+text = "  Loading..."
+fit_content = true
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Credits/ReturnToTitle" to="." method="_on_return_to_title_pressed"]

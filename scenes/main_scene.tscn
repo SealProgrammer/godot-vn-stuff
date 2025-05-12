@@ -1,158 +1,39 @@
-[gd_scene load_steps=43 format=3 uid="uid://clgcqvcrxqrum"]
+[gd_scene load_steps=22 format=3 uid="uid://clgcqvcrxqrum"]
 
 [ext_resource type="Script" uid="uid://cn1h3btcc0fk1" path="res://scripts/main_scene.gd" id="1_7ykc4"]
-[ext_resource type="Script" uid="uid://c3jddrwwk8k2d" path="res://scripts/Events/Event.gd" id="2_mngbo"]
-[ext_resource type="Script" uid="uid://ca7hnna0if2ok" path="res://scripts/Events/EventTypes/EventBase.gd" id="3_4w45t"]
+[ext_resource type="Script" uid="uid://c3jddrwwk8k2d" path="res://scripts/Events/Event.gd" id="2_r6p65"]
 [ext_resource type="Texture2D" uid="uid://8opda5mwcvdm" path="res://art/bg/suburbs.png" id="3_rt2n2"]
-[ext_resource type="Script" uid="uid://dds3260ojify1" path="res://scripts/Events/EventTypes/EventTalk.gd" id="4_4w45t"]
-[ext_resource type="Script" uid="uid://dh8rmn2lbcfmx" path="res://scripts/Events/EventTypes/EventMoveCharacter.gd" id="4_r6p65"]
-[ext_resource type="Script" uid="uid://bcney0ty2btpv" path="res://scripts/Events/EventTypes/EventChangeSprite.gd" id="5_4w45t"]
+[ext_resource type="Script" uid="uid://ca7hnna0if2ok" path="res://scripts/Events/EventTypes/EventBase.gd" id="3_si52b"]
+[ext_resource type="Script" uid="uid://dds3260ojify1" path="res://scripts/Events/EventTypes/EventTalk.gd" id="4_01n6w"]
 [ext_resource type="Script" uid="uid://dpehnflqr28j5" path="res://scripts/Events/EventContext.gd" id="5_18nlu"]
 [ext_resource type="PackedScene" uid="uid://bvitxbaqx71yv" path="res://scenes/Character.tscn" id="6_rt2n2"]
-[ext_resource type="Script" uid="uid://dct05i65lrpxd" path="res://scripts/Events/EventTypes/EventText.gd" id="7_01n6w"]
 [ext_resource type="Texture2D" uid="uid://cli8mqafr8d0b" path="res://art/ui/author.svg" id="7_18nlu"]
-[ext_resource type="Script" uid="uid://d1axorycp4xuo" path="res://scripts/Events/AsyncEvent.gd" id="8_6u1mn"]
 [ext_resource type="Texture2D" uid="uid://ci6kjcre5ce0t" path="res://art/ui/textbox-wip.svg" id="8_c1pb6"]
 [ext_resource type="Texture2D" uid="uid://cqpwegiofyj1p" path="res://art/char/test2/base.png" id="8_mngbo"]
-[ext_resource type="Script" uid="uid://ci51pydu2n47l" path="res://scripts/Events/EventTypes/EventFlipCharacter.gd" id="9_6u1mn"]
-[ext_resource type="Script" uid="uid://b8wmu8j6pc13q" path="res://scripts/Events/EventTypes/EventWait.gd" id="10_bcnxi"]
+[ext_resource type="FontFile" uid="uid://dr5mawxi5cegt" path="res://art/ui/font/MochiyPopPOne-Regular.ttf" id="10_r6p65"]
 [ext_resource type="FontFile" uid="uid://fx4j3xpxjrir" path="res://art/ui/font/Aller_Rg.ttf" id="12_r6p65"]
-[ext_resource type="FontFile" uid="uid://mqbkrlwk3rvc" path="res://art/ui/font/RifficFree-Bold.ttf" id="12_si52b"]
-
-[sub_resource type="Resource" id="Resource_k6f3i"]
-script = ExtResource("4_r6p65")
-character = 0
-screen_percent = 20.0
-animated = true
-time = 1.0
-metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
-
-[sub_resource type="Resource" id="Resource_xdqt8"]
-script = ExtResource("4_r6p65")
-character = 1
-screen_percent = 80.0
-animated = true
-time = 1.0
-metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
-
-[sub_resource type="Resource" id="Resource_7nt27"]
-script = ExtResource("2_mngbo")
-event_parameters = Array[ExtResource("3_4w45t")]([SubResource("Resource_k6f3i"), SubResource("Resource_xdqt8")])
-metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
+[ext_resource type="PackedScene" uid="uid://b44cjqq6tsl8r" path="res://scenes/GoNextArrow.tscn" id="14_r6p65"]
+[ext_resource type="AudioStream" uid="uid://c5j2onbi2lqhc" path="res://art/sfx/music/bgm.mp3" id="15_si52b"]
 
 [sub_resource type="Resource" id="Resource_r6p65"]
-script = ExtResource("4_4w45t")
+script = ExtResource("4_01n6w")
 character = 0
-text = "Why hello there, my good fellow!"
+text = "こんにちは, チャック・E・チーズへようこそ。かいしゃのけんこうのほけんはありません。"
+wait_for_input = true
 size_changes = 1
 metadata/_custom_type_script = "uid://dds3260ojify1"
 
 [sub_resource type="Resource" id="Resource_si52b"]
-script = ExtResource("4_4w45t")
+script = ExtResource("4_01n6w")
 character = 1
-text = "Why hello! And how might you be today?"
+text = "ああ、かっこいいですね〜"
+wait_for_input = true
 size_changes = 1
 metadata/_custom_type_script = "uid://dds3260ojify1"
 
-[sub_resource type="Resource" id="Resource_4w45t"]
-script = ExtResource("4_4w45t")
-character = 0
-text = "Good good, and you?"
-size_changes = 1
-metadata/_custom_type_script = "uid://dds3260ojify1"
-
-[sub_resource type="Resource" id="Resource_01n6w"]
-script = ExtResource("5_4w45t")
-character = 1
-sprite = "uid://ca2rij46fwxvd"
-size_changes = 3
-metadata/_custom_type_script = "uid://bcney0ty2btpv"
-
-[sub_resource type="Resource" id="Resource_6u1mn"]
-script = ExtResource("4_4w45t")
-character = 1
-text = "I'm doing quite alright myself, thanks for asking."
-size_changes = 1
-metadata/_custom_type_script = "uid://dds3260ojify1"
-
-[sub_resource type="Resource" id="Resource_bcnxi"]
-script = ExtResource("2_mngbo")
-event_parameters = Array[ExtResource("3_4w45t")]([SubResource("Resource_r6p65"), SubResource("Resource_si52b"), SubResource("Resource_4w45t"), SubResource("Resource_01n6w"), SubResource("Resource_6u1mn")])
-metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
-
-[sub_resource type="Resource" id="Resource_adb74"]
-script = ExtResource("7_01n6w")
-text = "..."
-metadata/_custom_type_script = "uid://dct05i65lrpxd"
-
-[sub_resource type="Resource" id="Resource_58gk3"]
-script = ExtResource("8_6u1mn")
-event_parameters = Array[ExtResource("3_4w45t")]([SubResource("Resource_adb74")])
-metadata/_custom_type_script = "uid://d1axorycp4xuo"
-
-[sub_resource type="Resource" id="Resource_u0fll"]
-script = ExtResource("9_6u1mn")
-character = 0
-metadata/_custom_type_script = "uid://ci51pydu2n47l"
-
-[sub_resource type="Resource" id="Resource_lhwp2"]
-script = ExtResource("10_bcnxi")
-time = 0.5
-metadata/_custom_type_script = "uid://b8wmu8j6pc13q"
-
-[sub_resource type="Resource" id="Resource_6p3nn"]
-script = ExtResource("9_6u1mn")
-character = 0
-metadata/_custom_type_script = "uid://ci51pydu2n47l"
-
-[sub_resource type="Resource" id="Resource_l40q6"]
-script = ExtResource("10_bcnxi")
-time = 0.5
-metadata/_custom_type_script = "uid://b8wmu8j6pc13q"
-
-[sub_resource type="Resource" id="Resource_k67gn"]
-script = ExtResource("4_4w45t")
-character = 0
-text = "Well I really must be going now. Good day, chap."
-size_changes = 1
-metadata/_custom_type_script = "uid://dds3260ojify1"
-
-[sub_resource type="Resource" id="Resource_k3g67"]
-script = ExtResource("4_4w45t")
-character = 1
-text = "Fare thee well! Cheerio!"
-size_changes = 1
-metadata/_custom_type_script = "uid://dds3260ojify1"
-
-[sub_resource type="Resource" id="Resource_4bgka"]
-script = ExtResource("9_6u1mn")
-character = 0
-metadata/_custom_type_script = "uid://ci51pydu2n47l"
-
-[sub_resource type="Resource" id="Resource_02d50"]
-script = ExtResource("4_r6p65")
-character = 0
-screen_percent = -20.0
-animated = true
-time = 1.0
-metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
-
-[sub_resource type="Resource" id="Resource_pgk25"]
-script = ExtResource("9_6u1mn")
-character = 1
-metadata/_custom_type_script = "uid://ci51pydu2n47l"
-
-[sub_resource type="Resource" id="Resource_kkokr"]
-script = ExtResource("4_r6p65")
-character = 1
-screen_percent = 120.0
-animated = true
-time = 1.0
-metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
-
-[sub_resource type="Resource" id="Resource_to7gp"]
-script = ExtResource("2_mngbo")
-event_parameters = Array[ExtResource("3_4w45t")]([SubResource("Resource_u0fll"), SubResource("Resource_lhwp2"), SubResource("Resource_6p3nn"), SubResource("Resource_l40q6"), SubResource("Resource_k67gn"), SubResource("Resource_k3g67"), SubResource("Resource_4bgka"), SubResource("Resource_02d50"), SubResource("Resource_pgk25"), SubResource("Resource_kkokr")])
+[sub_resource type="Resource" id="Resource_7nt27"]
+script = ExtResource("2_r6p65")
+event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_r6p65"), SubResource("Resource_si52b")])
 metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
 
 [sub_resource type="Resource" id="Resource_c1pb6"]
@@ -161,7 +42,17 @@ metadata/_custom_type_script = "uid://dpehnflqr28j5"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c16ls"]
 
-[node name="MainScene" type="Control" node_paths=PackedStringArray("dialog", "author", "background", "subviewport")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1cbu"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_e1cbu"]
+script/source = "extends Panel
+
+func _ready() -> void:
+	visible = true
+"
+
+[node name="MainScene" type="Control" node_paths=PackedStringArray("dialog", "author", "background", "subviewport", "fadein", "go_next")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -169,25 +60,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ykc4")
-events = Array[ExtResource("2_mngbo")]([SubResource("Resource_7nt27"), SubResource("Resource_bcnxi"), SubResource("Resource_58gk3"), SubResource("Resource_to7gp")])
+events = Array[ExtResource("2_r6p65")]([SubResource("Resource_7nt27")])
 dialog = NodePath("TextureRect/TextArea/MarginContainer/VBoxContainer/Dialog")
 author = NodePath("AuthorHolder/Name")
 background = NodePath("Scene/SubViewportContainer/SubViewport/Background")
 subviewport = NodePath("Scene/SubViewportContainer/SubViewport")
 event_context = SubResource("Resource_c1pb6")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+fadein = NodePath("Fadein")
+go_next = NodePath("GoNextArrow")
 
 [node name="Scene" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -247,13 +127,12 @@ patch_margin_bottom = 20
 unique_name_in_owner = true
 layout_mode = 2
 anchor_left = 0.022
-anchor_top = -0.045
 anchor_right = 1.0
-anchor_bottom = 1.091
+anchor_bottom = 1.117
 offset_left = 0.136
-offset_top = 9.38503
-offset_bottom = 9.40102
-theme_override_fonts/normal_font = ExtResource("12_si52b")
+offset_top = -0.99997
+offset_bottom = 0.0230103
+theme_override_fonts/normal_font = ExtResource("10_r6p65")
 theme_override_font_sizes/normal_font_size = 36
 theme_override_font_sizes/bold_font_size = 36
 bbcode_enabled = true
@@ -320,3 +199,33 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
+
+[node name="GoNextArrow" parent="." instance=ExtResource("14_r6p65")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.037
+offset_left = 1870.0
+offset_top = 1030.0
+offset_right = 1869.68
+offset_bottom = 1030.04
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_si52b")
+autoplay = true
+parameters/looping = true
+
+[node name="Dialogue" type="AudioStreamPlayer" parent="."]
+
+[node name="Fadein" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e1cbu")
+script = SubResource("GDScript_e1cbu")
+metadata/_edit_lock_ = true

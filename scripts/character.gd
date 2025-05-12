@@ -25,9 +25,9 @@ static func is_leading(time: OpTime) -> bool:
 static func is_ending(time: OpTime) -> bool:
 	return time == OpTime.END or time == OpTime.BOTH
 
-func move_to(position: float, time: float, animated: bool) -> void:
+func move_to(pos: float, time: float, animated: bool) -> void:
 	if not animated:
-		self.position.x = position
+		self.position.x = pos
 		return
 
 	anims.play("walk")
@@ -36,7 +36,7 @@ func move_to(position: float, time: float, animated: bool) -> void:
 	# might implement at some point (tm)
 #	tween.set_ease(Tween.EASE_IN)
 	
-	tween.tween_property(self, "position", Vector2(position, self.position.y), time)
+	tween.tween_property(self, "position", Vector2(pos, position.y), time)
 	
 	await tween.finished
 	
