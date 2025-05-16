@@ -9,14 +9,15 @@ enum Character {
 @onready var characters : Dictionary = {
 	"CHARLOTTE": {
 		"name": "千代",
-		"node": %Character1
+		"node": %Charlotte
 	},
 	"JULIE": {
 		"name": "じゅんか",
-		"node": %Character2
+		"node": %Julie
 	},
 	"MADDIE": {
-		"name": "チュッキ"
+		"name": "チュッキ",
+		"node": %Chucky
 	}
 }
 
@@ -25,6 +26,7 @@ enum Character {
 
 @export_category("Setup")
 @export var dialog : RichTextLabel
+@export var dialog_en : RichTextLabel
 @export var author : RichTextLabel
 @export var background : TextureRect
 @export var subviewport : SubViewport
@@ -32,7 +34,10 @@ enum Character {
 @export var event_context : EventContext
 @export var fadein : Panel
 
+@export var voicelines : AudioStreamPlayer
+
 var still_waiting : bool = false
+var skipping_anim : bool = false
 
 @export var go_next : GoNextArrow
 
@@ -42,13 +47,19 @@ func get_char(char: Character) -> Dictionary:
 func wait(s: float) -> void:
 	await get_tree().create_timer(s).timeout
 
-func display_text(text: String) -> void:
+func display_text(text: String, trans: String) -> void:
 	dialog.text = "[outline_size=3]%s[/outline_size]" % text
 	dialog.visible_characters = 0
+	
+	dialog_en.modulate = Color.TRANSPARENT
+	dialog_en.text = "[i][color=#ffffffbb][outline_size=3](%s)[/outline_size][/color][/i]" % trans
 	
 	var is_bbcode := false
 	
 	for i in range(len(text)):
+		if skipping_anim:
+			break
+		
 		if text[i] == '[':
 			is_bbcode = true
 			
@@ -57,10 +68,18 @@ func display_text(text: String) -> void:
 				is_bbcode = false
 		else:
 			dialog.visible_characters += 1
-			if [",", ".", "!", "?", "\n"].has(text[i]):
+			if [",", ".", "!", "?", "\n", "。", "、", "！", "？", "〜"].has(text[i]):
 				await wait(0.5)
 			else:
 				await wait(0.1)
+	
+	if skipping_anim:
+		dialog_en.modulate = Color.WHITE
+		dialog.visible_ratio = 1.0
+		skipping_anim = false
+	else:
+		var t : Tween = get_tree().create_tween()
+		t.tween_property(dialog_en, "modulate", Color.WHITE, 0.4)
 
 func change_author(new_author: Character) -> void:
 	author.text = "[outline_size=8][outline_color=bb5599] %s[/outline_color][/outline_size]" % get_char(new_author)["name"]
@@ -76,6 +95,8 @@ func converse() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			if dialog.visible_ratio < 1.0:
+				skipping_anim = true
 			event_context.emit_signal("user_clicked")
 
 func on_waiting() -> void:
@@ -94,15 +115,29 @@ func no_longer_waiting() -> void:
 	
 	go_next.disappear()
 
+func fade(trans: bool) -> void:
+	var t : Tween = get_tree().create_tween()
+	
+	await t.tween_property(fadein, "modulate", Color.TRANSPARENT if trans else Color.WHITE, 1).finished
+
+func the_end() -> void:
+	await fade(false)
+	var te : Label = $TheEnd
+	te.visible = true
+	te.modulate = Color.TRANSPARENT
+	var t : Tween = get_tree().create_tween()
+	
+	await t.tween_property(te, "modulate", Color.WHITE, 1).finished
+
+
 func _ready() -> void:
-	
-	
 	event_context.scene_tree = get_tree()
 	event_context.author = author
 	event_context.dialog = dialog
 	event_context.background = background
 	event_context.scene = self
 	event_context.subview = subviewport
+	event_context.voice = voicelines
 	# event_context.connect("user_clicked", on_waiting)
 	
 	event_context.connect("we_are_waiting", on_waiting)
@@ -110,8 +145,6 @@ func _ready() -> void:
 	
 	await get_tree().process_frame #HACK waits for everything to be loaded before continuing, fixes some things where root is loaded but other things are not.
 	
-	var t : Tween = get_tree().create_tween()
-	
-	await t.tween_property(fadein, "modulate", Color.TRANSPARENT, 1).finished
+	fade(true)
 	
 	converse()

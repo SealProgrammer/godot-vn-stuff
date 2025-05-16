@@ -17,8 +17,6 @@ enum OpTime {
 	NEITHER
 }
 
-var flipped : bool = false
-
 static func is_leading(time: OpTime) -> bool:
 	return time == OpTime.LEADING or time == OpTime.BOTH
 
@@ -56,12 +54,16 @@ func change_sprite(new_sprite: Texture, op_time: OpTime) -> void:
 		await anims.animation_finished
 
 func flip() -> void:
-	if flipped:
+	if sprite.flip_h:
 		anims.play("flip 360")
+		await anims.animation_finished
+		anims.play("RESET")
+		sprite.flip_h = false
 	else:
 		anims.play("flip 180")
-	
-	flipped = not flipped
+		await anims.animation_finished
+		anims.play("RESET")
+		sprite.flip_h = true
 	
 	await anims.animation_finished
 

@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfs1o2x3hmpfv"]
+[gd_scene load_steps=13 format=3 uid="uid://dfs1o2x3hmpfv"]
 
 [ext_resource type="Texture2D" uid="uid://b5nr4fo5c46g5" path="res://art/bg/chucky.jpg" id="1_fgkus"]
 [ext_resource type="Script" uid="uid://c4ry7f1vpneff" path="res://scripts/title_screen.gd" id="1_s4lrb"]
 [ext_resource type="FontFile" uid="uid://mqbkrlwk3rvc" path="res://art/ui/font/RifficFree-Bold.ttf" id="2_sa3yf"]
 [ext_resource type="FontFile" uid="uid://dr5mawxi5cegt" path="res://art/ui/font/MochiyPopPOne-Regular.ttf" id="4_e54dn"]
-[ext_resource type="Texture2D" uid="uid://r4c1noay6n76" path="res://art/ui/logo.png" id="4_mgrm8"]
 [ext_resource type="AudioStream" uid="uid://cq3f0fud5tflm" path="res://art/sfx/music/title.mp3" id="5_dc4i4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dc4i4"]
@@ -45,10 +44,6 @@ texture = ExtResource("1_fgkus")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(301, 245)
-texture = ExtResource("4_mgrm8")
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -61,6 +56,18 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.733333, 0.333333, 0.6, 1)
+theme_override_constants/outline_size = 100
+theme_override_fonts/font = ExtResource("4_e54dn")
+theme_override_font_sizes/font_size = 182
+text = "チャックチズフィナリ"
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 247.87)
 layout_mode = 2
 
 [node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
@@ -84,6 +91,10 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/focus = SubResource("StyleBoxEmpty_e54dn")
 text = "クレヂツ"
 flat = true
+
+[node name="Control2" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 379.558)
+layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_dc4i4")

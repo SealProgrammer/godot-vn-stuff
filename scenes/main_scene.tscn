@@ -1,39 +1,94 @@
-[gd_scene load_steps=22 format=3 uid="uid://clgcqvcrxqrum"]
+[gd_scene load_steps=34 format=3 uid="uid://clgcqvcrxqrum"]
 
 [ext_resource type="Script" uid="uid://cn1h3btcc0fk1" path="res://scripts/main_scene.gd" id="1_7ykc4"]
 [ext_resource type="Script" uid="uid://c3jddrwwk8k2d" path="res://scripts/Events/Event.gd" id="2_r6p65"]
-[ext_resource type="Texture2D" uid="uid://8opda5mwcvdm" path="res://art/bg/suburbs.png" id="3_rt2n2"]
 [ext_resource type="Script" uid="uid://ca7hnna0if2ok" path="res://scripts/Events/EventTypes/EventBase.gd" id="3_si52b"]
 [ext_resource type="Script" uid="uid://dds3260ojify1" path="res://scripts/Events/EventTypes/EventTalk.gd" id="4_01n6w"]
+[ext_resource type="Script" uid="uid://ci51pydu2n47l" path="res://scripts/Events/EventTypes/EventFlipCharacter.gd" id="4_6u1mn"]
 [ext_resource type="Script" uid="uid://dpehnflqr28j5" path="res://scripts/Events/EventContext.gd" id="5_18nlu"]
+[ext_resource type="Script" uid="uid://dh8rmn2lbcfmx" path="res://scripts/Events/EventTypes/EventMoveCharacter.gd" id="5_bcnxi"]
 [ext_resource type="PackedScene" uid="uid://bvitxbaqx71yv" path="res://scenes/Character.tscn" id="6_rt2n2"]
+[ext_resource type="Script" uid="uid://cqw6g75kp2ixd" path="res://scripts/Events/EventTypes/EventFade.gd" id="7_7nt27"]
 [ext_resource type="Texture2D" uid="uid://cli8mqafr8d0b" path="res://art/ui/author.svg" id="7_18nlu"]
+[ext_resource type="Script" uid="uid://bcney0ty2btpv" path="res://scripts/Events/EventTypes/EventChangeSprite.gd" id="7_k6f3i"]
 [ext_resource type="Texture2D" uid="uid://ci6kjcre5ce0t" path="res://art/ui/textbox-wip.svg" id="8_c1pb6"]
-[ext_resource type="Texture2D" uid="uid://cqpwegiofyj1p" path="res://art/char/test2/base.png" id="8_mngbo"]
+[ext_resource type="Texture2D" uid="uid://b1a753kf0hl3p" path="res://art/char/julie/julie-neutral.PNG" id="8_si52b"]
+[ext_resource type="Texture2D" uid="uid://cjcjxvv1l8x64" path="res://art/char/charlotte/charlotte-neutral.PNG" id="9_01n6w"]
+[ext_resource type="Texture2D" uid="uid://b5nr4fo5c46g5" path="res://art/bg/chucky.jpg" id="10_k6f3i"]
 [ext_resource type="FontFile" uid="uid://dr5mawxi5cegt" path="res://art/ui/font/MochiyPopPOne-Regular.ttf" id="10_r6p65"]
+[ext_resource type="Texture2D" uid="uid://bwpy2hvtd10yk" path="res://art/char/chucky/chucky-neutral.PNG" id="11_7nt27"]
 [ext_resource type="FontFile" uid="uid://fx4j3xpxjrir" path="res://art/ui/font/Aller_Rg.ttf" id="12_r6p65"]
 [ext_resource type="PackedScene" uid="uid://b44cjqq6tsl8r" path="res://scenes/GoNextArrow.tscn" id="14_r6p65"]
 [ext_resource type="AudioStream" uid="uid://c5j2onbi2lqhc" path="res://art/sfx/music/bgm.mp3" id="15_si52b"]
 
-[sub_resource type="Resource" id="Resource_r6p65"]
+[sub_resource type="Resource" id="Resource_k6f3i"]
+script = ExtResource("4_6u1mn")
+character = 1
+metadata/_custom_type_script = "uid://ci51pydu2n47l"
+
+[sub_resource type="Resource" id="Resource_xdqt8"]
+script = ExtResource("5_bcnxi")
+character = 1
+screen_percent = 75.0
+animated = true
+time = 1.4
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_bcnxi"]
 script = ExtResource("4_01n6w")
 character = 0
-text = "こんにちは, チャック・E・チーズへようこそ。かいしゃのけんこうのほけんはありません。"
+text = "こんにちは, チャッキ・E・チーズへようこそ。かいしゃのけんこうのほけんはありません。"
+translation = "Hello, welcome to Chuck-E-Cheese, we cannot provide you health insurance."
+voice = "uid://cjlj1rduseea"
 wait_for_input = true
 size_changes = 1
 metadata/_custom_type_script = "uid://dds3260ojify1"
 
-[sub_resource type="Resource" id="Resource_si52b"]
+[sub_resource type="Resource" id="Resource_adb74"]
 script = ExtResource("4_01n6w")
 character = 1
 text = "ああ、かっこいいですね〜"
+translation = "Ah, that is very cool :3 :3"
+voice = ""
 wait_for_input = true
 size_changes = 1
 metadata/_custom_type_script = "uid://dds3260ojify1"
 
+[sub_resource type="Resource" id="Resource_58gk3"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "チャッキをきゅうさいします、しごとですから。"
+translation = "You are going to help Chucky for your job."
+voice = ""
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_u0fll"]
+script = ExtResource("7_k6f3i")
+character = 1
+sprite = "uid://cjdxlvt8u0g4r"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_to7gp"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "すごいですね。"
+translation = "Alright, that's sugoi."
+voice = ""
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_6p3nn"]
+script = ExtResource("7_7nt27")
+fade_direction = 0
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
 [sub_resource type="Resource" id="Resource_7nt27"]
 script = ExtResource("2_r6p65")
-event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_r6p65"), SubResource("Resource_si52b")])
+event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_k6f3i"), SubResource("Resource_xdqt8"), SubResource("Resource_bcnxi"), SubResource("Resource_adb74"), SubResource("Resource_58gk3"), SubResource("Resource_u0fll"), SubResource("Resource_to7gp"), SubResource("Resource_6p3nn")])
 metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
 
 [sub_resource type="Resource" id="Resource_c1pb6"]
@@ -52,7 +107,7 @@ func _ready() -> void:
 	visible = true
 "
 
-[node name="MainScene" type="Control" node_paths=PackedStringArray("dialog", "author", "background", "subviewport", "fadein", "go_next")]
+[node name="MainScene" type="Control" node_paths=PackedStringArray("dialog", "dialog_en", "author", "background", "subviewport", "fadein", "voicelines", "go_next")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,11 +117,13 @@ grow_vertical = 2
 script = ExtResource("1_7ykc4")
 events = Array[ExtResource("2_r6p65")]([SubResource("Resource_7nt27")])
 dialog = NodePath("TextureRect/TextArea/MarginContainer/VBoxContainer/Dialog")
+dialog_en = NodePath("TextureRect/TextArea/MarginContainer/VBoxContainer/DialogEn")
 author = NodePath("AuthorHolder/Name")
 background = NodePath("Scene/SubViewportContainer/SubViewport/Background")
 subviewport = NodePath("Scene/SubViewportContainer/SubViewport")
 event_context = SubResource("Resource_c1pb6")
 fadein = NodePath("Fadein")
+voicelines = NodePath("Dialogue")
 go_next = NodePath("GoNextArrow")
 
 [node name="Scene" type="PanelContainer" parent="."]
@@ -89,39 +146,48 @@ render_target_update_mode = 4
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 313.375
+offset_top = -284.0
+offset_bottom = -284.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("3_rt2n2")
+texture = ExtResource("10_k6f3i")
 expand_mode = 5
 stretch_mode = 4
 
 [node name="Characters" type="Node2D" parent="Scene/SubViewportContainer/SubViewport"]
 
-[node name="Character1" parent="Scene/SubViewportContainer/SubViewport/Characters" instance=ExtResource("6_rt2n2")]
+[node name="Charlotte" parent="Scene/SubViewportContainer/SubViewport/Characters" instance=ExtResource("6_rt2n2")]
 unique_name_in_owner = true
-position = Vector2(-144, 537)
-scale = Vector2(0.4, 0.4)
+position = Vector2(541, 512)
+scale = Vector2(0.6, 0.6)
+starter_texture = ExtResource("9_01n6w")
 
-[node name="Character2" parent="Scene/SubViewportContainer/SubViewport/Characters" instance=ExtResource("6_rt2n2")]
+[node name="Julie" parent="Scene/SubViewportContainer/SubViewport/Characters" instance=ExtResource("6_rt2n2")]
 unique_name_in_owner = true
-position = Vector2(2136, 547)
-scale = Vector2(0.4, 0.4)
-starter_texture = ExtResource("8_mngbo")
+position = Vector2(2117, 512)
+scale = Vector2(0.6, 0.6)
+starter_texture = ExtResource("8_si52b")
+
+[node name="Chucky" parent="Scene/SubViewportContainer/SubViewport/Characters" instance=ExtResource("6_rt2n2")]
+unique_name_in_owner = true
+position = Vector2(-295, 512)
+scale = Vector2(0.6, 0.6)
+starter_texture = ExtResource("11_7nt27")
 
 [node name="AuthorHolder" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 667.0
-offset_right = 344.0
-offset_bottom = 720.0
+offset_left = 42.0
+offset_top = 708.0
+offset_right = 354.0
+offset_bottom = 761.0
 texture = ExtResource("7_18nlu")
 patch_margin_left = 20
 patch_margin_top = 20
 patch_margin_right = 20
 patch_margin_bottom = 20
+metadata/_edit_group_ = true
 
 [node name="Name" type="RichTextLabel" parent="AuthorHolder"]
 unique_name_in_owner = true
@@ -143,13 +209,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 715.0
+offset_top = 750.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_c1pb6")
 expand_mode = 5
 stretch_mode = 4
-metadata/_edit_group_ = true
 
 [node name="TextArea" type="PanelContainer" parent="TextureRect"]
 layout_mode = 1
@@ -163,7 +228,6 @@ grow_vertical = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_c16ls")
-metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect/TextArea"]
 layout_mode = 2
@@ -182,6 +246,18 @@ size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("12_r6p65")
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
+fit_content = true
+
+[node name="DialogEn" type="RichTextLabel" parent="TextureRect/TextArea/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_fonts/normal_font = ExtResource("12_r6p65")
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[i][color=#ffffffbb](very sugoi translation)[/color][/i]"
 fit_content = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -212,6 +288,7 @@ offset_bottom = 1030.04
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_si52b")
+volume_db = -15.0
 autoplay = true
 parameters/looping = true
 
@@ -228,4 +305,19 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e1cbu")
 script = SubResource("GDScript_e1cbu")
+metadata/_edit_lock_ = true
+
+[node name="TheEnd" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_r6p65")
+theme_override_font_sizes/font_size = 75
+text = "おわり。"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true

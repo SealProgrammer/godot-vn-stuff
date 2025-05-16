@@ -10,3 +10,4 @@ var author : RichTextLabel
 var background : TextureRect
 var scene : Game
 var subview : SubViewport
+var voice : AudioStreamPlayer
