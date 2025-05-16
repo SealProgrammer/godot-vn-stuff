@@ -3,7 +3,8 @@ class_name Game extends Control
 enum Character {
 	CHARLOTTE,
 	JULIE,
-	MADDIE
+	MADDIE,
+	KIDDO
 }
 
 @onready var characters : Dictionary = {
@@ -18,6 +19,10 @@ enum Character {
 	"MADDIE": {
 		"name": "チュッキ",
 		"node": %Chucky
+	},
+	"KIDDO": {
+		"name": "子",
+		"node": %Kid
 	}
 }
 
@@ -134,6 +139,7 @@ func _ready() -> void:
 	event_context.scene_tree = get_tree()
 	event_context.author = author
 	event_context.dialog = dialog
+	event_context.dialog_en = dialog_en
 	event_context.background = background
 	event_context.scene = self
 	event_context.subview = subviewport

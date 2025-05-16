@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://clgcqvcrxqrum"]
+[gd_scene load_steps=191 format=3 uid="uid://clgcqvcrxqrum"]
 
 [ext_resource type="Script" uid="uid://cn1h3btcc0fk1" path="res://scripts/main_scene.gd" id="1_7ykc4"]
 [ext_resource type="Script" uid="uid://c3jddrwwk8k2d" path="res://scripts/Events/Event.gd" id="2_r6p65"]
@@ -12,18 +12,27 @@
 [ext_resource type="Texture2D" uid="uid://cli8mqafr8d0b" path="res://art/ui/author.svg" id="7_18nlu"]
 [ext_resource type="Script" uid="uid://bcney0ty2btpv" path="res://scripts/Events/EventTypes/EventChangeSprite.gd" id="7_k6f3i"]
 [ext_resource type="Texture2D" uid="uid://ci6kjcre5ce0t" path="res://art/ui/textbox-wip.svg" id="8_c1pb6"]
-[ext_resource type="Texture2D" uid="uid://b1a753kf0hl3p" path="res://art/char/julie/julie-neutral.PNG" id="8_si52b"]
-[ext_resource type="Texture2D" uid="uid://cjcjxvv1l8x64" path="res://art/char/charlotte/charlotte-neutral.PNG" id="9_01n6w"]
-[ext_resource type="Texture2D" uid="uid://b5nr4fo5c46g5" path="res://art/bg/chucky.jpg" id="10_k6f3i"]
+[ext_resource type="Texture2D" uid="uid://b1a753kf0hl3p" path="res://art/char/julie/julie-1.PNG" id="8_si52b"]
+[ext_resource type="Texture2D" uid="uid://cjcjxvv1l8x64" path="res://art/char/charlotte/charlotte-1.PNG" id="9_01n6w"]
+[ext_resource type="Script" uid="uid://da2q6xeqgc1ot" path="res://scripts/Events/EventTypes/EventChangeBackground.gd" id="9_xdqt8"]
+[ext_resource type="Script" uid="uid://nj1kedh8rc7m" path="res://scripts/Events/EventTypes/EventClear.gd" id="10_adb74"]
 [ext_resource type="FontFile" uid="uid://dr5mawxi5cegt" path="res://art/ui/font/MochiyPopPOne-Regular.ttf" id="10_r6p65"]
-[ext_resource type="Texture2D" uid="uid://bwpy2hvtd10yk" path="res://art/char/chucky/chucky-neutral.PNG" id="11_7nt27"]
+[ext_resource type="Texture2D" uid="uid://bwpy2hvtd10yk" path="res://art/char/chucky/chucky-1.PNG" id="11_7nt27"]
+[ext_resource type="Texture2D" uid="uid://c1t5d73n2uyeb" path="res://art/bg/chucky-hiring.jpg" id="11_adb74"]
+[ext_resource type="Script" uid="uid://dct05i65lrpxd" path="res://scripts/Events/EventTypes/EventText.gd" id="11_to7gp"]
+[ext_resource type="Script" uid="uid://x0tu0vppjlxs" path="res://scripts/Events/EventTypes/EventPlaySound.gd" id="12_6p3nn"]
 [ext_resource type="FontFile" uid="uid://fx4j3xpxjrir" path="res://art/ui/font/Aller_Rg.ttf" id="12_r6p65"]
+[ext_resource type="Script" uid="uid://b8wmu8j6pc13q" path="res://scripts/Events/EventTypes/EventWait.gd" id="13_k67gn"]
+[ext_resource type="Script" uid="uid://d1axorycp4xuo" path="res://scripts/Events/AsyncEvent.gd" id="14_k3g67"]
 [ext_resource type="PackedScene" uid="uid://b44cjqq6tsl8r" path="res://scenes/GoNextArrow.tscn" id="14_r6p65"]
+[ext_resource type="Script" uid="uid://o6lhr7u6n0vr" path="res://scripts/Events/EventTypes/EventTheEnd.gd" id="15_4bgka"]
 [ext_resource type="AudioStream" uid="uid://c5j2onbi2lqhc" path="res://art/sfx/music/bgm.mp3" id="15_si52b"]
+[ext_resource type="Texture2D" uid="uid://31xspcpelexw" path="res://art/char/lmao.jpg" id="20_k3g67"]
 
 [sub_resource type="Resource" id="Resource_k6f3i"]
 script = ExtResource("4_6u1mn")
 character = 1
+instant = false
 metadata/_custom_type_script = "uid://ci51pydu2n47l"
 
 [sub_resource type="Resource" id="Resource_xdqt8"]
@@ -49,7 +58,7 @@ script = ExtResource("4_01n6w")
 character = 1
 text = "ああ、かっこいいですね〜"
 translation = "Ah, that is very cool :3 :3"
-voice = ""
+voice = "uid://b0j8mjn1afjj6"
 wait_for_input = true
 size_changes = 1
 metadata/_custom_type_script = "uid://dds3260ojify1"
@@ -59,7 +68,7 @@ script = ExtResource("4_01n6w")
 character = 0
 text = "チャッキをきゅうさいします、しごとですから。"
 translation = "You are going to help Chucky for your job."
-voice = ""
+voice = "uid://bxthcybs3ed3q"
 wait_for_input = true
 size_changes = 1
 metadata/_custom_type_script = "uid://dds3260ojify1"
@@ -76,7 +85,7 @@ script = ExtResource("4_01n6w")
 character = 1
 text = "すごいですね。"
 translation = "Alright, that's sugoi."
-voice = ""
+voice = "uid://dqh4uq5ptssg5"
 wait_for_input = true
 size_changes = 3
 metadata/_custom_type_script = "uid://dds3260ojify1"
@@ -89,6 +98,1143 @@ metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
 [sub_resource type="Resource" id="Resource_7nt27"]
 script = ExtResource("2_r6p65")
 event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_k6f3i"), SubResource("Resource_xdqt8"), SubResource("Resource_bcnxi"), SubResource("Resource_adb74"), SubResource("Resource_58gk3"), SubResource("Resource_u0fll"), SubResource("Resource_to7gp"), SubResource("Resource_6p3nn")])
+metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
+
+[sub_resource type="Resource" id="Resource_k67gn"]
+script = ExtResource("9_xdqt8")
+background = "uid://6psggtohuda6"
+metadata/_custom_type_script = "uid://da2q6xeqgc1ot"
+
+[sub_resource type="Resource" id="Resource_02d50"]
+script = ExtResource("5_bcnxi")
+character = 0
+screen_percent = 40.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_pgk25"]
+script = ExtResource("5_bcnxi")
+character = 1
+screen_percent = 20.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_kkokr"]
+script = ExtResource("5_bcnxi")
+character = 2
+screen_percent = 80.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_lhwp2"]
+script = ExtResource("4_6u1mn")
+character = 1
+instant = true
+metadata/_custom_type_script = "uid://ci51pydu2n47l"
+
+[sub_resource type="Resource" id="Resource_3mjum"]
+script = ExtResource("7_k6f3i")
+character = 1
+sprite = "uid://b1a753kf0hl3p"
+size_changes = 3
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_l40q6"]
+script = ExtResource("10_adb74")
+metadata/_custom_type_script = "uid://nj1kedh8rc7m"
+
+[sub_resource type="Resource" id="Resource_k3g67"]
+script = ExtResource("7_7nt27")
+fade_direction = 1
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_iav3h"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "これはチュキさんをいます。"
+translation = "Here's Chucky."
+voice = "uid://1g7ijeohl25v"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_xa0eo"]
+script = ExtResource("7_k6f3i")
+character = 1
+sprite = "uid://cxdvuba21lh86"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_womr8"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "だれですか？"
+translation = "Who's under the mask?"
+voice = "uid://d2ypc7ib8crty"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_p27gv"]
+script = ExtResource("7_k6f3i")
+character = 0
+sprite = "uid://bhyijafxc3nim"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_onjth"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "いうな。"
+translation = "Don't ask."
+voice = "uid://cisfm0ooavor6"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_cn4eu"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://to3mqir1qnkx"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_0wyf6"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "こどもたちがだいきらいよ！！"
+translation = "(Mumbled) I hate kids!!"
+voice = "uid://bn1ym3qk8npv5"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_xp01v"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "ほんと？！？！"
+translation = "REALLY?!?!"
+voice = "uid://b8adt0wi85gs3"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_86meh"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://bqpkuxbaqwljf"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_jix7a"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "それはきくな。"
+translation = "You didn't hear that."
+voice = "uid://ddjto8i81toq4"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_beobj"]
+script = ExtResource("7_k6f3i")
+character = 0
+sprite = "uid://c7w6hdotjdijm"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_segjr"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "とにかく、じゅんかちゃんはきゅうさい。"
+translation = "Anyways, Junka-chan will help you now."
+voice = "uid://c7e41qp2kw3jd"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_duuju"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://to3mqir1qnkx"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_267kh"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "どうして！？わたしはきゅうさいなよ！"
+translation = "Why!? I don't need help!"
+voice = "uid://edyu8yc12u2i"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_8dxha"]
+script = ExtResource("7_k6f3i")
+character = 0
+sprite = "uid://bhyijafxc3nim"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_j4epa"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "いいえ、こどもだちはおもいだしましたか？"
+translation = "Yes you do, remember what happened to that kid?"
+voice = "uid://c4yhq3ec8pdxj"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_ruju6"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://bwpy2hvtd10yk"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_5nybl"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "。。。"
+translation = "..."
+voice = ""
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_cq0lk"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "いいてきます。"
+translation = "I'm leaving now."
+voice = "uid://dp7ymfkm3so1s"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_j2yw6"]
+script = ExtResource("4_6u1mn")
+character = 0
+instant = false
+metadata/_custom_type_script = "uid://ci51pydu2n47l"
+
+[sub_resource type="Resource" id="Resource_8pjrr"]
+script = ExtResource("5_bcnxi")
+character = 0
+screen_percent = -30.0
+animated = true
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_0xxsb"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "ええと。。。バールピツをせいけつ。"
+translation = "Uhh... Go clean the ballpit."
+voice = "uid://ca462nmgcnt4b"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_wqttf"]
+script = ExtResource("7_k6f3i")
+character = 1
+sprite = "uid://b1a753kf0hl3p"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_77ff8"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "はい！"
+translation = "Ok!"
+voice = "uid://b3567316fsnub"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_wacd7"]
+script = ExtResource("4_6u1mn")
+character = 1
+instant = false
+metadata/_custom_type_script = "uid://ci51pydu2n47l"
+
+[sub_resource type="Resource" id="Resource_c5q2x"]
+script = ExtResource("5_bcnxi")
+character = 1
+screen_percent = -20.0
+animated = true
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_qw8n7"]
+script = ExtResource("7_7nt27")
+fade_direction = 0
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_4bgka"]
+script = ExtResource("2_r6p65")
+event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_k67gn"), SubResource("Resource_02d50"), SubResource("Resource_pgk25"), SubResource("Resource_kkokr"), SubResource("Resource_lhwp2"), SubResource("Resource_3mjum"), SubResource("Resource_l40q6"), SubResource("Resource_k3g67"), SubResource("Resource_iav3h"), SubResource("Resource_xa0eo"), SubResource("Resource_womr8"), SubResource("Resource_p27gv"), SubResource("Resource_onjth"), SubResource("Resource_cn4eu"), SubResource("Resource_0wyf6"), SubResource("Resource_xp01v"), SubResource("Resource_86meh"), SubResource("Resource_jix7a"), SubResource("Resource_beobj"), SubResource("Resource_segjr"), SubResource("Resource_duuju"), SubResource("Resource_267kh"), SubResource("Resource_8dxha"), SubResource("Resource_j4epa"), SubResource("Resource_ruju6"), SubResource("Resource_5nybl"), SubResource("Resource_cq0lk"), SubResource("Resource_j2yw6"), SubResource("Resource_8pjrr"), SubResource("Resource_0xxsb"), SubResource("Resource_wqttf"), SubResource("Resource_77ff8"), SubResource("Resource_wacd7"), SubResource("Resource_c5q2x"), SubResource("Resource_qw8n7")])
+metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
+
+[sub_resource type="Resource" id="Resource_gmxj2"]
+script = ExtResource("7_k6f3i")
+character = 0
+sprite = "uid://cys4lq41b3j2c"
+size_changes = 3
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_taqkn"]
+script = ExtResource("5_bcnxi")
+character = 1
+screen_percent = 20.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_qnap4"]
+script = ExtResource("4_6u1mn")
+character = 1
+instant = true
+metadata/_custom_type_script = "uid://ci51pydu2n47l"
+
+[sub_resource type="Resource" id="Resource_1sx6m"]
+script = ExtResource("4_6u1mn")
+character = 0
+instant = true
+metadata/_custom_type_script = "uid://ci51pydu2n47l"
+
+[sub_resource type="Resource" id="Resource_0uct7"]
+script = ExtResource("5_bcnxi")
+character = 0
+screen_percent = -40.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_1a541"]
+script = ExtResource("7_k6f3i")
+character = 1
+sprite = "uid://bwouv0ark0nj6"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_gwxm2"]
+script = ExtResource("10_adb74")
+metadata/_custom_type_script = "uid://nj1kedh8rc7m"
+
+[sub_resource type="Resource" id="Resource_llmay"]
+script = ExtResource("7_7nt27")
+fade_direction = 1
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_ihyyi"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "おわる！"
+translation = "Done!!"
+voice = "uid://cs0s1qndj4w6y"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_hrafc"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://ijl1fgrgg8r1"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_abv1d"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "むりだよ！"
+translation = "That's not possible!"
+voice = "uid://dplhntwjrv26b"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_qo6h2"]
+script = ExtResource("7_k6f3i")
+character = 1
+sprite = "uid://cjdxlvt8u0g4r"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_bq7en"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "チュキ様、ぜんぜんうそをはなします"
+translation = "I would never lie to you Chucky-sama"
+voice = "uid://b7gnprul2ans5"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_mh7vv"]
+script = ExtResource("7_k6f3i")
+character = 1
+sprite = "uid://cxdvuba21lh86"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_fm3ay"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "バールピツはせいけつをしています。"
+translation = "The ball pit is clean."
+voice = "uid://m8y0fqxql2ub"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_qj6t7"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://ijl1fgrgg8r1"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_k78mq"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "そう。"
+translation = "Yeah, ok..."
+voice = "uid://c1i5rja5pjstp"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_ldtbd"]
+script = ExtResource("5_bcnxi")
+character = 0
+screen_percent = 40.0
+animated = true
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_xncra"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "どうしましたか？"
+translation = "What'd you do?"
+voice = "uid://byltss1x5p70r"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_4fyw0"]
+script = ExtResource("7_k6f3i")
+character = 1
+sprite = "uid://bwouv0ark0nj6"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_00pac"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "あれはあらいました"
+translation = "I cleaned it!"
+voice = "uid://cdbecmffxciei"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_3sutw"]
+script = ExtResource("7_k6f3i")
+character = 0
+sprite = "uid://dhjmhpdxjyvpv"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_h20w0"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "。。。ありがとう"
+translation = "... Thanks"
+voice = "uid://bhn5eplkqw1qw"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_c1tim"]
+script = ExtResource("7_7nt27")
+fade_direction = 0
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_sgkfd"]
+script = ExtResource("2_r6p65")
+event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_gmxj2"), SubResource("Resource_taqkn"), SubResource("Resource_qnap4"), SubResource("Resource_1sx6m"), SubResource("Resource_0uct7"), SubResource("Resource_1a541"), SubResource("Resource_gwxm2"), SubResource("Resource_llmay"), SubResource("Resource_ihyyi"), SubResource("Resource_hrafc"), SubResource("Resource_abv1d"), SubResource("Resource_qo6h2"), SubResource("Resource_bq7en"), SubResource("Resource_mh7vv"), SubResource("Resource_fm3ay"), SubResource("Resource_qj6t7"), SubResource("Resource_k78mq"), SubResource("Resource_ldtbd"), SubResource("Resource_xncra"), SubResource("Resource_4fyw0"), SubResource("Resource_00pac"), SubResource("Resource_3sutw"), SubResource("Resource_h20w0"), SubResource("Resource_c1tim")])
+metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
+
+[sub_resource type="Resource" id="Resource_ahecp"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://bqpkuxbaqwljf"
+size_changes = 3
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_f0q1o"]
+script = ExtResource("7_k6f3i")
+character = 1
+sprite = "uid://b1a753kf0hl3p"
+size_changes = 3
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_iaiog"]
+script = ExtResource("5_bcnxi")
+character = 0
+screen_percent = -20.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_bciwm"]
+script = ExtResource("10_adb74")
+metadata/_custom_type_script = "uid://nj1kedh8rc7m"
+
+[sub_resource type="Resource" id="Resource_00eal"]
+script = ExtResource("9_xdqt8")
+background = "uid://ribnd1f0jyjh"
+metadata/_custom_type_script = "uid://da2q6xeqgc1ot"
+
+[sub_resource type="Resource" id="Resource_abvoq"]
+script = ExtResource("7_7nt27")
+fade_direction = 1
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_ds4wg"]
+script = ExtResource("11_to7gp")
+text = "あくるひ"
+translation = "The next day"
+metadata/_custom_type_script = "uid://dct05i65lrpxd"
+
+[sub_resource type="Resource" id="Resource_lgwe5"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "じゅんかはうしろ。"
+translation = "I see you're back."
+voice = "uid://wg0k2vm352k1"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_6pqhf"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "はい！"
+translation = "Yep!"
+voice = "uid://q4xsn77ea205"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_hu1xv"]
+script = ExtResource("11_to7gp")
+text = "りゅうてい"
+translation = "Crying [note to self: I hate this audio why did I download it]"
+metadata/_custom_type_script = "uid://dct05i65lrpxd"
+
+[sub_resource type="Resource" id="Resource_tm4k6"]
+script = ExtResource("12_6p3nn")
+sound = "uid://5imbeln2582g"
+metadata/_custom_type_script = "uid://x0tu0vppjlxs"
+
+[sub_resource type="Resource" id="Resource_5t4fw"]
+script = ExtResource("7_7nt27")
+fade_direction = 0
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_2aaiw"]
+script = ExtResource("2_r6p65")
+event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_ahecp"), SubResource("Resource_f0q1o"), SubResource("Resource_iaiog"), SubResource("Resource_bciwm"), SubResource("Resource_00eal"), SubResource("Resource_abvoq"), SubResource("Resource_ds4wg"), SubResource("Resource_lgwe5"), SubResource("Resource_6pqhf"), SubResource("Resource_hu1xv"), SubResource("Resource_tm4k6"), SubResource("Resource_5t4fw")])
+metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
+
+[sub_resource type="Resource" id="Resource_65o4m"]
+script = ExtResource("5_bcnxi")
+character = 1
+screen_percent = 65.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_vygp1"]
+script = ExtResource("4_6u1mn")
+character = 1
+instant = true
+metadata/_custom_type_script = "uid://ci51pydu2n47l"
+
+[sub_resource type="Resource" id="Resource_75n0t"]
+script = ExtResource("5_bcnxi")
+character = 2
+screen_percent = 80.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_bt07v"]
+script = ExtResource("5_bcnxi")
+character = 3
+screen_percent = 30.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_opbc2"]
+script = ExtResource("7_7nt27")
+fade_direction = 1
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_qj5h3"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "あら、元気ですか？"
+translation = "Oh no, are you ok?"
+voice = "uid://cqagxf1wn6dwb"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_10pix"]
+script = ExtResource("4_01n6w")
+character = 3
+text = "わたしはクラゲームのめいぐるみはいけない。。。"
+translation = "I can't get a toy from the claw machine :( [Note: sorry folks forgot to record audio for this one and it's 9:47 PM on thursday night so I'm not recording anything else]"
+voice = ""
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_k8vib"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://to3mqir1qnkx"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_5iwo2"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "さんじですね。。。"
+translation = "What a tragedy..."
+voice = "uid://dosb1kgrolsnd"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_v7tct"]
+script = ExtResource("7_k6f3i")
+character = 1
+sprite = "uid://b1a753kf0hl3p"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_vlitc"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "しんぱいじゃない、わたしはすくいをします！"
+translation = "Don't worry, I'll help you!"
+voice = "uid://de5lsii5wlnk7"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_btbde"]
+script = ExtResource("7_7nt27")
+fade_direction = 0
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_magks"]
+script = ExtResource("12_6p3nn")
+sound = "uid://d1kg0fw5ewlpm"
+metadata/_custom_type_script = "uid://x0tu0vppjlxs"
+
+[sub_resource type="Resource" id="Resource_7062q"]
+script = ExtResource("13_k67gn")
+time = 5.0
+metadata/_custom_type_script = "uid://b8wmu8j6pc13q"
+
+[sub_resource type="Resource" id="Resource_5vrw5"]
+script = ExtResource("7_7nt27")
+fade_direction = 1
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_8ic2j"]
+script = ExtResource("7_k6f3i")
+character = 3
+sprite = "uid://bpg4hqcdkwmlw"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_bofc0"]
+script = ExtResource("4_01n6w")
+character = 3
+text = "どうもありがとう！"
+translation = "Thank you!!"
+voice = ""
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_yk56o"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "じゅんかくんがやさし。。。いいひと。"
+translation = "That was nice... You're a good person."
+voice = "uid://vkflx2sn6q76"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_mxavj"]
+script = ExtResource("4_6u1mn")
+character = 1
+instant = false
+metadata/_custom_type_script = "uid://ci51pydu2n47l"
+
+[sub_resource type="Resource" id="Resource_uf32p"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "あーありがとう！"
+translation = "T-thank you!"
+voice = "uid://ch6ktfvun6kfk"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_n8t7m"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://cfi38qaon26ku"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_agode"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "わたしはいく。じゃあまた。"
+translation = "I'm gonna go... See you tomorrow."
+voice = "uid://b727j5ny7ah04"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_l05tx"]
+script = ExtResource("5_bcnxi")
+character = 2
+screen_percent = 150.0
+animated = true
+time = 0.2
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_3fm0y"]
+script = ExtResource("7_7nt27")
+fade_direction = 0
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_pxuh0"]
+script = ExtResource("2_r6p65")
+event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_65o4m"), SubResource("Resource_vygp1"), SubResource("Resource_75n0t"), SubResource("Resource_bt07v"), SubResource("Resource_opbc2"), SubResource("Resource_qj5h3"), SubResource("Resource_10pix"), SubResource("Resource_k8vib"), SubResource("Resource_5iwo2"), SubResource("Resource_v7tct"), SubResource("Resource_vlitc"), SubResource("Resource_btbde"), SubResource("Resource_magks"), SubResource("Resource_7062q"), SubResource("Resource_5vrw5"), SubResource("Resource_8ic2j"), SubResource("Resource_bofc0"), SubResource("Resource_yk56o"), SubResource("Resource_mxavj"), SubResource("Resource_uf32p"), SubResource("Resource_n8t7m"), SubResource("Resource_agode"), SubResource("Resource_l05tx"), SubResource("Resource_3fm0y")])
+metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
+
+[sub_resource type="Resource" id="Resource_rerj2"]
+script = ExtResource("9_xdqt8")
+background = "uid://6psggtohuda6"
+metadata/_custom_type_script = "uid://da2q6xeqgc1ot"
+
+[sub_resource type="Resource" id="Resource_y2xfi"]
+script = ExtResource("5_bcnxi")
+character = 0
+screen_percent = 40.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_grn4f"]
+script = ExtResource("5_bcnxi")
+character = 1
+screen_percent = 20.0
+animated = true
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_0rnsp"]
+script = ExtResource("5_bcnxi")
+character = 2
+screen_percent = 75.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_fpmhc"]
+script = ExtResource("5_bcnxi")
+character = 3
+screen_percent = -1000.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_cwycm"]
+script = ExtResource("7_k6f3i")
+character = 0
+sprite = "uid://cjcjxvv1l8x64"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_ycc4e"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://bwpy2hvtd10yk"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_l7h1d"]
+script = ExtResource("5_bcnxi")
+character = 2
+screen_percent = 130.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_ik4fr"]
+script = ExtResource("7_7nt27")
+fade_direction = 1
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_6t57n"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "みなさん、おはよう！"
+translation = "Good morning everyone!"
+voice = "uid://d2p0mteeqtqio"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_h45r1"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "おはよう。。。それから、チャケエはどこですか？"
+translation = "Good morning to you too... Anyways, have you seen Chucky?"
+voice = "uid://bwkig8qt77ib3"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_4utpg"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "いいえ、わたしはここについたばかりです。"
+translation = "No, I just got here."
+voice = "uid://dcdhyyohrow8a"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_yl5kd"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "はい、チャッキをみつけてください、わたしはみつけていません。"
+translation = "Alright, help me look for Chucky, I can't find him anywhere."
+voice = "uid://6it48resixdr"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_4c0ir"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "はい！"
+translation = "Ok!!"
+voice = "uid://bp45qynqupel8"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_y23kb"]
+script = ExtResource("7_7nt27")
+fade_direction = 0
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_7tyuc"]
+script = ExtResource("5_bcnxi")
+character = 0
+screen_percent = -20.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_isor2"]
+script = ExtResource("5_bcnxi")
+character = 1
+screen_percent = 80.0
+animated = false
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_mj6bc"]
+script = ExtResource("4_6u1mn")
+character = 2
+instant = true
+metadata/_custom_type_script = "uid://ci51pydu2n47l"
+
+[sub_resource type="Resource" id="Resource_p5kpv"]
+script = ExtResource("7_7nt27")
+fade_direction = 1
+metadata/_custom_type_script = "uid://cqw6g75kp2ixd"
+
+[sub_resource type="Resource" id="Resource_p3q0h"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "*ノック*　チャッキさまがいますか？"
+translation = "*knocks* Chucky are you in there?"
+voice = "uid://bdafsuaqwoyyr"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_dg6ba"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "うん、わたしはくる。"
+translation = "Yeah, I'll come out"
+voice = "uid://b18644l26r1of"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_sfujp"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://bhrgf7v2xy0xd"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_cdyqn"]
+script = ExtResource("5_bcnxi")
+character = 1
+screen_percent = 50.0
+animated = true
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_7due4"]
+script = ExtResource("5_bcnxi")
+character = 2
+screen_percent = 80.0
+animated = true
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_av52g"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "よう、どこでチャッキぼうしはある？"
+translation = "Hey, have you seen the Chucky head anywhere?"
+voice = "uid://bkm0itvwslfgc"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_26vbk"]
+script = ExtResource("4_01n6w")
+character = 1
+text = "なに？！？！ねずみじゃない？？"
+translation = "WHAT!? You aren't a mouse??"
+voice = "uid://emm2i7sc8ime"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_x155s"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://bc8qibcelyamd"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_nahbm"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "。。。ええ？"
+translation = "... what?"
+voice = "uid://cbcvg8fb8mj2t"
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_u8hks"]
+script = ExtResource("7_k6f3i")
+character = 0
+sprite = "uid://cjcjxvv1l8x64"
+size_changes = 3
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_umxdp"]
+script = ExtResource("5_bcnxi")
+character = 0
+screen_percent = 30.0
+animated = true
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_qjyrl"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "ああ、チャッキはみつけます"
+translation = "Oh, you found chucky--"
+voice = "uid://dvqx3lptpekd2"
+wait_for_input = false
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_l33ch"]
+script = ExtResource("13_k67gn")
+time = 1.0
+metadata/_custom_type_script = "uid://b8wmu8j6pc13q"
+
+[sub_resource type="Resource" id="Resource_4r5ie"]
+script = ExtResource("7_k6f3i")
+character = 0
+sprite = "uid://cys4lq41b3j2c"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_51d74"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "どんだけ？？だれ？？"
+translation = "WHO IS THAT??"
+voice = ""
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_sb1i7"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "わたしはあきらかにチャック・E・チェズわない。"
+translation = "I'm obviously not Chuck-E-Cheeze"
+voice = "uid://bs7f1rlvved2"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_s58iq"]
+script = ExtResource("4_6u1mn")
+character = 1
+instant = true
+metadata/_custom_type_script = "uid://ci51pydu2n47l"
+
+[sub_resource type="Resource" id="Resource_su1k0"]
+script = ExtResource("5_bcnxi")
+character = 1
+screen_percent = -20.0
+animated = true
+time = 0.5
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_6i0bu"]
+script = ExtResource("7_k6f3i")
+character = 0
+sprite = "uid://c7w6hdotjdijm"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_4l3kw"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "。。。"
+translation = "..."
+voice = ""
+wait_for_input = true
+size_changes = 3
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_bcyfm"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "。。。"
+translation = "..."
+voice = ""
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_oys5g"]
+script = ExtResource("4_01n6w")
+character = 0
+text = "えっと。。。チャッキさまはばんごはんをいきません？"
+translation = "Soooooo do you want to go get dinner?"
+voice = "uid://brlvs215d8mka"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_vowyj"]
+script = ExtResource("7_k6f3i")
+character = 2
+sprite = "uid://bhrgf7v2xy0xd"
+size_changes = 1
+metadata/_custom_type_script = "uid://bcney0ty2btpv"
+
+[sub_resource type="Resource" id="Resource_ufg4r"]
+script = ExtResource("4_01n6w")
+character = 2
+text = "はい"
+translation = "yuh"
+voice = "uid://cls2gehpvpnt7"
+wait_for_input = true
+size_changes = 1
+metadata/_custom_type_script = "uid://dds3260ojify1"
+
+[sub_resource type="Resource" id="Resource_mrvy2"]
+script = ExtResource("5_bcnxi")
+character = 2
+screen_percent = 35.0
+animated = true
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_ukbd8"]
+script = ExtResource("2_r6p65")
+event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_rerj2"), SubResource("Resource_y2xfi"), SubResource("Resource_grn4f"), SubResource("Resource_0rnsp"), SubResource("Resource_fpmhc"), SubResource("Resource_cwycm"), SubResource("Resource_ycc4e"), SubResource("Resource_l7h1d"), SubResource("Resource_ik4fr"), SubResource("Resource_6t57n"), SubResource("Resource_h45r1"), SubResource("Resource_4utpg"), SubResource("Resource_yl5kd"), SubResource("Resource_4c0ir"), SubResource("Resource_y23kb"), SubResource("Resource_7tyuc"), SubResource("Resource_isor2"), SubResource("Resource_mj6bc"), SubResource("Resource_p5kpv"), SubResource("Resource_p3q0h"), SubResource("Resource_dg6ba"), SubResource("Resource_sfujp"), SubResource("Resource_cdyqn"), SubResource("Resource_7due4"), SubResource("Resource_av52g"), SubResource("Resource_26vbk"), SubResource("Resource_x155s"), SubResource("Resource_nahbm"), SubResource("Resource_u8hks"), SubResource("Resource_umxdp"), SubResource("Resource_qjyrl"), SubResource("Resource_l33ch"), SubResource("Resource_4r5ie"), SubResource("Resource_51d74"), SubResource("Resource_sb1i7"), SubResource("Resource_s58iq"), SubResource("Resource_su1k0"), SubResource("Resource_6i0bu"), SubResource("Resource_4l3kw"), SubResource("Resource_bcyfm"), SubResource("Resource_oys5g"), SubResource("Resource_vowyj"), SubResource("Resource_ufg4r"), SubResource("Resource_mrvy2")])
+metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
+
+[sub_resource type="Resource" id="Resource_5x80e"]
+script = ExtResource("5_bcnxi")
+character = 0
+screen_percent = -30.0
+animated = true
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_w3l71"]
+script = ExtResource("5_bcnxi")
+character = 2
+screen_percent = -25.0
+animated = true
+time = 1.0
+metadata/_custom_type_script = "uid://dh8rmn2lbcfmx"
+
+[sub_resource type="Resource" id="Resource_nstem"]
+script = ExtResource("14_k3g67")
+event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_5x80e"), SubResource("Resource_w3l71")])
+metadata/_custom_type_script = "uid://d1axorycp4xuo"
+
+[sub_resource type="Resource" id="Resource_5vec7"]
+script = ExtResource("15_4bgka")
+metadata/_custom_type_script = "uid://o6lhr7u6n0vr"
+
+[sub_resource type="Resource" id="Resource_hc40i"]
+script = ExtResource("2_r6p65")
+event_parameters = Array[ExtResource("3_si52b")]([SubResource("Resource_5vec7")])
 metadata/_custom_type_script = "uid://c3jddrwwk8k2d"
 
 [sub_resource type="Resource" id="Resource_c1pb6"]
@@ -115,7 +1261,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ykc4")
-events = Array[ExtResource("2_r6p65")]([SubResource("Resource_7nt27")])
+events = Array[ExtResource("2_r6p65")]([SubResource("Resource_7nt27"), SubResource("Resource_4bgka"), SubResource("Resource_sgkfd"), SubResource("Resource_2aaiw"), SubResource("Resource_pxuh0"), SubResource("Resource_ukbd8"), SubResource("Resource_nstem"), SubResource("Resource_hc40i")])
 dialog = NodePath("TextureRect/TextArea/MarginContainer/VBoxContainer/Dialog")
 dialog_en = NodePath("TextureRect/TextArea/MarginContainer/VBoxContainer/DialogEn")
 author = NodePath("AuthorHolder/Name")
@@ -152,7 +1298,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("10_k6f3i")
+texture = ExtResource("11_adb74")
 expand_mode = 5
 stretch_mode = 4
 
@@ -175,6 +1321,12 @@ unique_name_in_owner = true
 position = Vector2(-295, 512)
 scale = Vector2(0.6, 0.6)
 starter_texture = ExtResource("11_7nt27")
+
+[node name="Kid" parent="Scene/SubViewportContainer/SubViewport/Characters" instance=ExtResource("6_rt2n2")]
+unique_name_in_owner = true
+position = Vector2(-417, 546)
+scale = Vector2(0.409, 0.409)
+starter_texture = ExtResource("20_k3g67")
 
 [node name="AuthorHolder" type="NinePatchRect" parent="."]
 layout_mode = 0

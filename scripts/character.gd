@@ -53,7 +53,11 @@ func change_sprite(new_sprite: Texture, op_time: OpTime) -> void:
 		anims.play("squish end")
 		await anims.animation_finished
 
-func flip() -> void:
+func flip(instant: bool) -> void:
+	if instant:
+		sprite.flip_h = not sprite.flip_h
+		return
+	
 	if sprite.flip_h:
 		anims.play("flip 360")
 		await anims.animation_finished

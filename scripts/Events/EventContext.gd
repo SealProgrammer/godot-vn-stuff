@@ -6,6 +6,7 @@ signal we_are_not_waiting
 
 var scene_tree: SceneTree
 var dialog : RichTextLabel
+var dialog_en : RichTextLabel
 var author : RichTextLabel
 var background : TextureRect
 var scene : Game
